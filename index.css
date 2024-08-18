@@ -1,0 +1,196 @@
+@import url(./reset.css);
+
+:root{
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+    --GrayishBlue: hsl(212, 23%, 69%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+@font-face {
+    font-family: 'manrope';
+    src: url(./Manrope-VariableFont_wght.ttf);
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: 'manrope';
+    background-color: var(--LightGrayishBlue);
+}
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image{
+    max-width: 20rem;
+    border-radius: 10px 0 0 10px;
+    max-height: 16rem;
+}
+.preview{
+    max-height: 16rem;
+    height: 100%;
+    padding: 1.2rem 2.5rem;
+    max-width: 25rem;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+    h1{
+        font-size: 1.2rem;
+        margin: 1rem 0 0.8rem;
+        line-height: 1.5rem;
+    }
+    p{
+        font-size:0.75rem;
+        font-weight: 500;
+        color: var(--DesaturatedDarkBlue);
+    }
+}
+.pic{
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+}
+.pfp{
+    h2{
+        font-size: 0.8rem;
+        line-height: 0.8rem;
+    }
+    p{
+        font-size: 0.8rem;
+        color: var(--GrayishBlue);
+    }
+}
+.lower{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.2rem 0 0;
+}
+.share{
+    border-radius: 50%;
+    z-index: 1;
+    padding: 0.5rem 0.4rem;
+    background-color: var(--LightGrayishBlue);
+}
+.openshare{
+    width: 100%;
+    width: 15rem;
+    background-color: var(--VeryDarkGrayishBlue);
+    display: flex;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 10px;
+    position: relative;
+    left: 11.3rem;
+    top: -6.8rem;
+    transform: translateY(101%);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    p{
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        color: var(--GrayishBlue);
+    }
+}
+.openshare::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+}
+.openshare.active {
+    transform: translateY(0%);
+    opacity: 1;
+    max-height: 3.5rem;
+}
+@media screen and (max-width: 575px){
+    main{
+        flex-direction: column;
+    }
+    .image{
+        max-width: 25rem;
+        width: 25rem;
+        max-height: 19rem;
+        margin: -3.5rem;
+        border-radius: 10px 10px 0 0;
+    }
+    .preview{
+        border-radius: 0 0 10px 10px;
+        padding: 1.5rem 2.7rem;
+        max-height: 20rem;
+        overflow: hidden;
+
+        h1{
+            font-size: 1.2rem;
+        }
+        p{
+            font-size: 0.9rem;
+        }
+        .lower{
+            margin: 2.8rem 0 0;
+        }
+        .pic{
+            width: 2.6rem;
+            height: 2.6rem;
+        }
+        .openshare{
+            position: relative;
+            top: -4.05rem;
+            left:-2.7rem;
+            border-radius: 0 0 10px 10px;
+            width: calc(100% + 5.5rem);
+            height: 5.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            padding: 0 0 0 2.7rem;
+            gap: 1.5rem;
+            transition: all 0.5s ease-in-out;
+            content-visibility: hidden;
+        }
+        .coloring{
+            width: 1.5rem;
+        }
+        .openshare::after {
+            border-width: 0px;
+        }
+        .share{
+            z-index: 1;
+            position: relative;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0rem;
+            img{
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+        .openshare.active {
+            content-visibility: visible;
+            overflow: visible;
+            max-height: 5.4rem;
+        }
+    }
+}
+.share:hover{
+    background-color: var(--DesaturatedDarkBlue);
+    cursor: pointer;
+    .shareimg{
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(206deg) brightness(200%) contrast(101%);
+    }
+}
